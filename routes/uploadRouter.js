@@ -28,7 +28,7 @@ const imageFileFilter = (req, file, cb) => {
 
 // 'upload' is a middleware to upload the file and will provide req.file property to next middleware
 
-const upload = multer({ storage: storage, fileFilter: imageFileFilter });
+const upload = multer({ storage: storage, fileFilter: imageFileFilter, limits: { fileSize: 1024*1024 } });
 
 const uploadRouter = express.Router();
 uploadRouter.use(bodyParser.json());
